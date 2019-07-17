@@ -1,0 +1,22 @@
+{
+  "name" : "parallalax/dashboardnewsbundle",
+  "description" : "News To integrate into a Dashboard",
+  "type" : "symfony-bundle",
+  "authors" : [{
+    "name" : "ParallalaxStudio",
+    "email" : "contact@parallalaxstudio.fr"
+  }],
+  "license" : [
+    "MIT"
+  ],
+  "autoload" : {
+    "psr-4" : {
+      "Parallalax\\DashboardNewsBundle\\" : ""
+    }
+  },
+  "extra" : {
+    "branch-alias" : {
+      "dev-master" : "0.x-dev"
+    }
+  }
+}
