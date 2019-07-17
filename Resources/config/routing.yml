@@ -1,0 +1,8 @@
+
+parallalax_news_homepage:
+    path:     /parallalax/news/
+    defaults: { _controller: ParallalaxDashboardNewsBundle:News:index }
+
+parallalax_news_edit:
+    path:  /parallalax/news/edit/{id}
+    defaults: { _controller: ParallalaxDashboardNewsBundle:News:edit, 'id': null }

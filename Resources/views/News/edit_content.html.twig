@@ -1,0 +1,20 @@
+
+	<div class="section">
+		<div class="col-md-12">
+
+			<div class="card">
+				<div class="card-head">
+					<header><i class="fa fa-info-circle"></i> {{ news.id ? "Edition" : "Nouvelle news" }}</header>
+				</div>
+				<div class="card-body">
+					{{ form_start(form) }}
+					{{ form_row(form.title) }}
+					<div id="toolbar-container"></div>
+					{{ form_row(form.content) }}
+					{{ form_end(form) }}
+				</div>
+			</div>
+
+		</div>
+
+	</div>

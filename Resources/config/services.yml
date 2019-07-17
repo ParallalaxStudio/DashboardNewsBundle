@@ -1,0 +1,26 @@
+
+services:
+
+    Parallalax\DashboardNewsBundle\Form\NewsType:
+        public: false
+
+    parallalax_dashboard_news.manager.news:
+        class: Parallalax\DashboardNewsBundle\Utils\EntityManager\NewsManager
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "%parallalax_dashboard_news.news_class%"
+
+    parallalax_dashboard_news.form.type.news:
+        class: Parallalax\DashboardNewsBundle\Form\NewsType
+        arguments:
+            - "%parallalax_dashboard_news.news_class%"
+        tags: ['form.type']
+
+
+    parallalax_dashboard_news.form.factory.news:
+        class: Parallalax\DashboardNewsBundle\Utils\FormFactory\NewsFormFactory
+        arguments:
+            - "@form.factory"
+            - Parallalax\DashboardNewsBundle\Form\NewsType
+            - "testy"
+            - "%parallalax_dashboard_news.news_class%"
