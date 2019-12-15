@@ -6,3 +6,8 @@ parallalax_news_homepage:
 parallalax_news_edit:
     path:  /parallalax/news/edit/{id}
     defaults: { _controller: ParallalaxDashboardNewsBundle:News:edit, 'id': null }
+
+ckfinder_connector:
+    resource: "@CKSourceCKFinderBundle/Resources/config/routing.yml"
+    prefix:   /
+
