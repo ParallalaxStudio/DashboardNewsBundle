@@ -2,6 +2,7 @@
 
 namespace Parallalax\DashboardNewsBundle\Controller;
 
+use AppBundle\Entity\NewsType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -16,11 +17,22 @@ class NewsController extends Controller
         return $this->render('ParallalaxDashboardNewsBundle::list.html.twig', ['news' => $news]);
     }
 
-    public function editAction(Request $request, $id)
+    public function editAction(Request $request, $id=null)
     {
 
         $manager = $this->container->get('parallalax_dashboard_news.manager.news');
-        $news = $manager->find($id);
+        if($id === null) {
+            $news = $manager->create();
+            $news->setUser($this->getUser());
+            if($request->query->get('position') != '') {
+
+
+                $news->setPosition($request->query->get('position'));
+            }
+        }
+        else {
+            $news = $manager->find($id);
+        }
 
         $form = $this->container->get('parallalax_dashboard_news.form.factory.news')->createForm();
         $form->setData($news);

@@ -16,9 +16,16 @@ class NewsManager {
      */
     protected $repository;
 
+    protected $entityClassName;
+
     public function __construct(EntityManager $em, $entityClassName) {
         $this->em = $em;
+        $this->entityClassName = $entityClassName;
         $this->repository = $this->em->getRepository($entityClassName);
+    }
+
+    public function create() {
+        return new $this->entityClassName;
     }
 
     public function find($id) {
