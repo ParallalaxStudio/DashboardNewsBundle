@@ -42,19 +42,32 @@ class NewsType extends AbstractType {
 						]
 				));
 
-/*		$builder->add('position', ChoiceType::class, array(
+		/*$builder->add('type', EntityType::class, [
+		    //'class' => \Parallalax\DashboardNewsBundle\Entity\NewsType::class,
+            'class' => \AppBundle\Entity\NewsType::class,
+            'choice_label' => 'name',
+            'placeholder' => 'Choisir un type',
+            'empty_data'  => null,
+            'required' => true,
+            'attr' => [
+                'class' => 'js-custom',
+                ]
+        ]);*/
+
+		$builder->add('position', ChoiceType::class, array(
                     'label' => false,
                     'choices' => array('Gauche' => 'GAUCHE',
                         'Milieu' => 'MILIEU',
                         'Droite' => 'DROITE',
-						'En haut' => 'HAUT'
+						'En haut' => 'HAUT',
+                        'Alerte' => 'ALERTE'
                     ),
                     'choice_value' => function ($choice) {
                         return $choice;
                     },
                     'choices_as_values' => true,
                     'attr' => array('class' => 'js-custom'),
-                    'required' => false));*/
+                    'required' => false));
 
 		$builder->add('submit', SubmitType::class, array(
 					'label' => 'Enregistrer',
