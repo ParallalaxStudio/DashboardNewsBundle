@@ -22,5 +22,5 @@ services:
         arguments:
             - "@form.factory"
             - Parallalax\DashboardNewsBundle\Form\NewsType
-            - "testy"
+            - "parallalax_news"
             - "%parallalax_dashboard_news.news_class%"

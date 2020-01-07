@@ -3,12 +3,12 @@
 namespace Parallalax\DashboardNewsBundle\Form;
 
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-
-use Doctrine\ORM\EntityRepository;
+//use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+//use Doctrine\ORM\EntityRepository;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -69,6 +69,22 @@ class NewsType extends AbstractType {
                     'attr' => array('class' => 'js-custom'),
                     'required' => false));
 
+        $builder->add('type', ChoiceType::class, array(
+            'label' => false,
+            'choices' => array('Auto' => 'AUTO',
+                'Crm' => 'CRM',
+                'Franchise' => 'FRANCHISE',
+                'Partenaires' => 'PARTENAIRES'
+            ),
+            'choice_value' => function ($choice) {
+                return $choice;
+            },
+            'choices_as_values' => true,
+            'attr' => ['class' => 'js-custom', 'placeholder' => 'Choisir un type'],
+            'required' => false));
+
+        $builder->add('thumbnail', HiddenType::class);
+
 		$builder->add('submit', SubmitType::class, array(
 					'label' => 'Enregistrer',
 					'attr' => array('class' => 'btn btn-primary')));
@@ -81,4 +97,3 @@ class NewsType extends AbstractType {
         ]);
     }
 }
-?>

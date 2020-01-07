@@ -9,18 +9,13 @@ class News
 
     protected $title;
 
+    protected $thumbnail;
+
+    protected $dateinsert;
+
     public function getId()
     {
         return $this->id;
-    }
-
-    public function setType(NewsTypeInterface $type) {
-        $this->type = $type;
-        return $this;
-    }
-
-    public function getType() {
-        return $this->type;
     }
 
     public function setTitle($title)
@@ -50,5 +45,14 @@ class News
 
     public function getDateinsert() {
         return $this->dateinsert;
+    }
+
+    public function setThumbnail($thumbnail) {
+        $this->thumbnail = $thumbnail;
+        return $this;
+    }
+
+    public function getThumbnail() {
+        return $this->thumbnail;
     }
 }

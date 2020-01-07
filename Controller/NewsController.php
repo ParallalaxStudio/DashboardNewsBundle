@@ -46,8 +46,14 @@ class NewsController extends Controller
             return $this->redirectToRoute('parallalax_news_homepage');
         }
 
-        //echo get_class($form);die;
+        $path = getcwd() .'/userfiles/images/';
 
-        return $this->render('ParallalaxDashboardNewsBundle::edit.html.twig', ['news' => $news, 'form' => $form->createView()]);
+        $thumbs = array_diff(scandir($path), array('.', '..'));
+
+        return $this->render('ParallalaxDashboardNewsBundle::edit.html.twig', [
+                                            'news' => $news,
+                                            'form' => $form->createView(),
+                                            'thumbs' => $thumbs
+        ]);
     }
 }

@@ -21,12 +21,6 @@ abstract class News extends BaseNews
      */
     protected $id;
 
-     /**
-      * @ORM\ManyToOne(targetEntity="NewsType")
-      * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
-      */
-    protected $type;
-
     /**
      * @ORM\Column(type="user_id", length=100)
      */
@@ -41,6 +35,11 @@ abstract class News extends BaseNews
      * @ORM\Column(type="text", name="content")
      */
     protected $content;
+
+    /**
+     * @ORM\Column(type="string", length=200, name="thumbnail", nullable=true)
+     */
+    protected $thumbnail;
 
     /**
      * @ORM\Column(type="datetime")
