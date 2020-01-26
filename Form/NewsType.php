@@ -74,7 +74,8 @@ class NewsType extends AbstractType {
             'choices' => array('Auto' => 'AUTO',
                 'Crm' => 'CRM',
                 'Franchise' => 'FRANCHISE',
-                'Partenaires' => 'PARTENAIRES'
+                'Partenaires' => 'PARTENAIRES',
+		'FNAA' => 'FNAA'
             ),
             'choice_value' => function ($choice) {
                 return $choice;
